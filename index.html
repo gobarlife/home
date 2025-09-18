@@ -57,14 +57,22 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
+    		display: flex;
+    		align-items: center;
+    		gap: 0.75rem;
+    		cursor: pointer;
+		}
+		.logo span {
+    		font-size: 1.25rem;
+    		/*font-weight: 700;*/
+    		color: var(--text-primary);
+		}
+		
+		.site-logo {
+    		height: 50px;
+    		width: auto;
+    		cursor: pointer;
+		}
         .nav-actions {
             display: flex;
             gap: 1rem;
@@ -649,7 +657,10 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
-            <div id="home-btn" class="logo">gobarlife.ai</div>
+            <div id="home-btn" class="logo">
+    			<img src="brainstorm.svg" alt="GoBarLife Logo" class="site-logo">
+    			<span>gobarlife.ai</span>
+			</div>
             <div class="nav-actions">
                 <span id="user-info" class="hidden"></span>
                 <button id="auth-btn" class="btn btn-primary">DEMO</button>
