@@ -34,7 +34,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 1rem 1rem;
         }
 
         /* Header */
@@ -1274,11 +1274,7 @@
             // Navigation
             document.getElementById('auth-btn').onclick = () => showScreen('auth');
             document.getElementById('start-practice-btn').onclick = () => {
-                if (state.user) {
-                    showScreen('exam');
-                } else {
-                    showScreen('auth');
-                }
+                alert('Coming Soon… Thousands of aspirants like you are waiting. Don’t just prepare—practice smarter. Your edge is arriving soon.');
             };
             document.getElementById('logout-btn').onclick = logout;
             document.getElementById('home-btn').onclick = () => showScreen('home');
