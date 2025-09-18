@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoBarLife.ai - AI-Powered UPSC prelims practice questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #f8fafc;
+            --accent-color: #059669;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --error-color: #dc2626;
+            --success-color: #059669;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-color);
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        /* Main Content */
+        .main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .screen {
+            display: none;
+            min-height: calc(100vh - 80px);
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        /* Home Screen */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+	    margin: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--gradient);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Auth Screen */
+        .auth-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 0;
+        }
+
+        .auth-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .auth-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .google-btn {
+            width: 100%;
+            background: #4285f4;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .google-btn:hover {
+            background: #3367d6;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 1rem 0;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-color);
+            z-index: 1;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Exam Selection Screen */
+        .exam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .exam-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .exam-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        .exam-card.selected {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .exam-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .exam-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 1rem 0;
+        }
+
+        .exam-features {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .exam-features li {
+            padding: 0.25rem 0;
+            color: var(--text-secondary);
+        }
+
+        .exam-features li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .customization-panel {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+        }
+
+        .slider-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Payment Screen */
+        .payment-summary {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .payment-methods {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .payment-method {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary-color);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        /* Practice Screen */
+        .practice-header {
+            background: white;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 80px;
+            z-index: 50;
+        }
+
+        .practice-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timer {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .question-container {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .question {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .question-number {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .question-text {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .options {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .option {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .option.selected {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            position: sticky;
+            bottom: 0;
+            background: white;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Results Screen */
+        .results-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .analytics-item {
+            background: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .analytics-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .analytics-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .exam-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .practice-info {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-color);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 { margin-top: 1rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .p-2 { padding: 1rem; }
+
+
+	/* Contact Section */
+.contact {
+    padding: 4rem 0;
+   /* background: #f9fafb; */
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--secondary-color); /* light gray background */
+    color: var(--text-secondary);       /* soft text */
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer a {
+    color: var(--primary-color); /* match brand blue */
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div id="home-btn" class="logo">gobarlife.ai</div>
+            <div class="nav-actions">
+                <span id="user-info" class="hidden"></span>
+                <button id="auth-btn" class="btn btn-primary">DEMO</button>
+                <button id="logout-btn" class="btn btn-secondary hidden">Logout</button>
+ <!--  <button onclick="showScreen('contact')" class="btn btn-secondary">Contact</button> -->
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen active">
+            <section class="hero">
+                <div class="container">
+                    <h1>AI-Powered UPSC prelims practice questions</h1>
+                    <p>Get personalized, AI-generated prelims practice questions tailored to your needs. Pay per exam, practice instantly, and track your progress.</p>
+                    <button id="start-practice-btn" class="btn btn-primary btn-large">Start Practicing Now</button>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Instant Generation</h3>
+                        <p>AI-generated prelims practice questions in seconds, customized to your difficulty level and topic preferences.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Pay Per Exam</h3>
+                        <p>No subscriptions. Pay only ₹10-₹100 per exam based on complexity and length.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Instant Analytics</h3>
+                        <p>Get detailed performance insights and personalized recommendations after each exam.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Auth Screen -->
+        <div id="auth-screen" class="screen">
+            <div class="auth-container">
+                <div class="container">
+                    <div class="auth-card">
+                        <h2 class="auth-title">Get Started</h2>
+                        <button id="google-auth-btn" class="btn google-btn">
+                            <span>📧</span> Continue with Google
+                        </button>
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+                        <form id="phone-auth-form">
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-input" placeholder="+91 9876543210" id="phone-input" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send OTP</button>
+                        </form>
+                        <div id="otp-form" class="hidden">
+                            <div class="form-group">
+                                <label class="form-label">Enter OTP</label>
+                                <input type="text" class="form-input" placeholder="123456" id="otp-input" required>
+                            </div>
+                            <button id="verify-otp-btn" class="btn btn-primary" style="width: 100%;">Verify OTP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exam Selection Screen -->
+        <div id="exam-screen" class="screen">
+            <div class="container">
+                <h2 class="text-center mb-2">Choose Your Practice Exam</h2>
+                <div class="exam-grid">
+                    <div class="exam-card" data-exam="prelims-basic">
+                        <h3 class="exam-title">UPSC Prelims - Basic</h3>
+                        <div class="exam-price">₹25</div>
+                        <ul class="exam-features">
+                            <li>50 Questions</li>
+                            <li>90 Minutes</li>
+                            <li>Easy to Medium Difficulty</li>
+                            <li>General Studies Focus</li>
+                        </ul>
+                    </div>
+                    <div class="exam-card" data-exam="prelims-advanced">
+                        <h3 class="exam-title">UPSC Prelims - Medium</h3>
+                        <div class="exam-price">₹45</div>
+                        <ul class="exam-features">
+                            <li>100 Questions</li>
+                            <li>120 Minutes</li>
+                            <li>Easy to Medium Difficulty</li>
+                            <li>Comprehensive Coverage</li>
+                        </ul>
+                    </div>
+                    <div class="exam-card" data-exam="mains-practice">
+                        <h3 class="exam-title">UPSC Prelims - Advance</h3>
+                        <div class="exam-price">₹75</div>
+                        <ul class="exam-features">
+                            <li>100 Questions</li>
+                            <li>120 Minutes</li>
+                            <li>Medium to Hard Difficulty</li>
+                            <li>Comprehensive Coverage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="customization-panel" class="customization-panel hidden">
+                    <h3>Customize Your Exam</h3>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Difficulty Level</span>
+                            <span id="difficulty-value">Medium</span>
+                        </div>
+                        <input type="range" min="1" max="5" value="3" class="slider" id="difficulty-slider">
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>Current Affairs Weight</span>
+                            <span id="current-affairs-value">30%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="30" class="slider" id="current-affairs-slider">
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <span>History & Culture Weight</span>
+                            <span id="history-value">25%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="25" class="slider" id="history-slider">
+                    </div>
+                    <button id="proceed-payment-btn" class="btn btn-primary btn-large">Proceed to Payment</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Screen -->
+        <div id="payment-screen" class="screen">
+            <div class="container">
+                <h2 class="text-center mb-2">Complete Payment</h2>
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <div class="payment-summary">
+                        <h3>Order Summary</h3>
+                        <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                            <span id="selected-exam-name">UPSC Prelims - Basic</span>
+                            <strong id="exam-price-display">₹25</strong>
+                        </div>
+                        <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--border-color);">
+                        <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 600;">
+                            <span>Total</span>
+                            <span id="total-price">₹25</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <div class="payment-method selected" data-method="upi">
+                            <strong>🏦 UPI Payment</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Pay instantly using any UPI app</p>
+                        </div>
+                        <div class="payment-method" data-method="card">
+                            <strong>💳 Credit/Debit Card</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Visa, MasterCard, RuPay accepted</p>
+                        </div>
+                        <div class="payment-method" data-method="netbanking">
+                            <strong>🌐 Net Banking</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Direct bank transfer</p>
+                        </div>
+                    </div>
+
+                    <button id="pay-now-btn" class="btn btn-primary btn-large" style="width: 100%;">Pay Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Screen -->
+        <div id="practice-screen" class="screen">
+            <div class="practice-header">
+                <div class="container">
+                    <div class="practice-info">
+                        <div>
+                            <strong id="current-question-display">Question 1 of 50</strong>
+                        </div>
+                        <div class="timer" id="timer-display">90:00</div>
+                        <div>
+                            <button id="submit-exam-btn" class="btn btn-secondary">Submit Exam</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question" id="question-display">
+                    <div class="question-number">Question <span id="q-number">1</span></div>
+                    <div class="question-text" id="q-text">Loading question...</div>
+                    <div class="options" id="q-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button id="prev-btn" class="btn btn-secondary">← Previous</button>
+                <button id="next-btn" class="btn btn-primary">Next →</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="container">
+                <div class="results-card">
+                    <h2>Exam Results</h2>
+                    <div class="score-circle" id="score-display">85%</div>
+                    <p id="score-message">Excellent performance! Keep up the good work.</p>
+
+                    <div class="analytics-grid">
+                        <div class="analytics-item">
+                            <div class="analytics-value" id="correct-answers">42</div>
+                            <div class="analytics-label">Correct Answers</div>
+                        </div>
+                        <div class="analytics-item">
+                            <div class="analytics-value" id="time-taken">75</div>
+                            <div class="analytics-label">Minutes Taken</div>
+                        </div>
+                        <div class="analytics-item">
+                            <div class="analytics-value" id="accuracy">84%</div>
+                            <div class="analytics-label">Accuracy Rate</div>
+                        </div>
+                        <div class="analytics-item">
+                            <div class="analytics-value" id="rank">A</div>
+                            <div class="analytics-label">Performance Grade</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <button id="retake-exam-btn" class="btn btn-secondary">Take Another Exam</button>
+                        <button id="home-btn" class="btn btn-primary">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen">
+            <div class="loading">
+                <div>
+                    <div class="spinner"></div>
+                    <p style="margin-top: 1rem; text-align: center;">Generating your personalized exam...</p>
+                </div>
+            </div>
+        </div>
+<!-- Contact Us Section -->
+<div id="contact-screen" class="screen">
+    <section class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions? We'd love to hear from you.</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label class="form-label">Your Name</label>
+                    <input type="text" class="form-input" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Your Email</label>
+                    <input type="email" class="form-input" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-input" rows="4" placeholder="Type your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+</div>
+    </main>
+
+    <script>
+        // App State
+        const state = {
+            currentScreen: 'home',
+            user: null,
+            selectedExam: null,
+            currentQuestion: 0,
+            answers: {},
+            timeRemaining: 0,
+            timer: null,
+            questions: []
+        };
+
+        // Sample Questions Data
+        const sampleQuestions = {
+            'prelims-basic': [
+                {
+                    id: 1,
+                    text: "Which of the following is the highest peak in the Western Ghats?",
+                    options: [
+                        "Anamudi",
+                        "Doddabetta",
+                        "Mullayanagiri",
+                        "Mahendragiri"
+                    ],
+                    correct: 0
+                },
+                {
+                    id: 2,
+                    text: "The 'Goods and Services Tax (GST)' was implemented in India in which year?",
+                    options: [
+                        "2016",
+                        "2017",
+                        "2018",
+                        "2019"
+                    ],
+                    correct: 1
+                }
+            ],
+            'prelims-advanced': [
+                {
+                    id: 1,
+                    text: "Which of the following statements about the Indian monsoon is/are correct?\n1. The monsoon is caused by seasonal reversal of wind patterns\n2. The Arabian Sea branch is more powerful than the Bay of Bengal branch\n3. Western Ghats receive more rainfall than Eastern Ghats",
+                    options: [
+                        "1 only",
+                        "1 and 3 only",
+                        "2 and 3 only",
+                        "All of the above"
+                    ],
+                    correct: 1
+                }
+            ]
+        };
+
+        // Exam configurations
+        const examConfigs = {
+            'prelims-basic': {
+                name: 'UPSC Prelims - Basic',
+                price: 25,
+                questions: 50,
+                time: 90
+            },
+            'prelims-advanced': {
+                name: 'UPSC Prelims - Advanced',
+                price: 45,
+                questions: 100,
+                time: 120
+            },
+            'mains-practice': {
+                name: 'UPSC Mains Practice',
+                price: 75,
+                questions: 20,
+                time: 180
+            }
+        };
+
+        // Navigation functions
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId + '-screen').classList.add('active');
+            state.currentScreen = screenId;
+        }
+
+        function updateAuthUI() {
+            const authBtn = document.getElementById('auth-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+            const userInfo = document.getElementById('user-info');
+
+            if (state.user) {
+                authBtn.classList.add('hidden');
+                logoutBtn.classList.remove('hidden');
+                userInfo.classList.remove('hidden');
+                userInfo.textContent = state.user.name || state.user.phone;
+            } else {
+                authBtn.classList.remove('hidden');
+                logoutBtn.classList.add('hidden');
+                userInfo.classList.add('hidden');
+            }
+        }
+
+        // Authentication functions
+        function handleGoogleAuth() {
+            // Mock Google authentication
+            setTimeout(() => {
+                state.user = {
+                    id: 'google_' + Date.now(),
+                    name: 'John Doe',
+                    email: 'john@example.com',
+                    authMethod: 'google'
+                };
+                updateAuthUI();
+                showScreen('exam');
+            }, 1000);
+        }
+
+        function handlePhoneAuth(phone) {
+            // Mock OTP sending
+            document.getElementById('phone-auth-form').classList.add('hidden');
+            document.getElementById('otp-form').classList.remove('hidden');
+        }
+
+        function handleOTPVerification(otp) {
+            // Mock OTP verification
+            if (otp === '123456') {
+                const phone = document.getElementById('phone-input').value;
+                state.user = {
+                    id: 'phone_' + Date.now(),
+                    phone: phone,
+                    authMethod: 'phone'
+                };
+                updateAuthUI();
+                showScreen('exam');
+            } else {
+                alert('Invalid OTP. Please try 123456 for demo.');
+            }
+        }
+
+        function logout() {
+            state.user = null;
+            state.selectedExam = null;
+            state.answers = {};
+            updateAuthUI();
+            showScreen('home');
+        }
+
+        // Exam selection functions
+        function selectExam(examType) {
+            document.querySelectorAll('.exam-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            event.target.closest('.exam-card').classList.add('selected');
+            state.selectedExam = examType;
+            
+            document.getElementById('customization-panel').classList.remove('hidden');
+            updateExamPrice();
+        }
+
+        function updateExamPrice() {
+            const config = examConfigs[state.selectedExam];
+            document.getElementById('selected-exam-name').textContent = config.name;
+            document.getElementById('exam-price-display').textContent = `₹${config.price}`;
+            document.getElementById('total-price').textContent = `₹${config.price}`;
+        }
+
+        // Payment functions
+        function selectPaymentMethod(method) {
+            document.querySelectorAll('.payment-method').forEach(pm => {
+                pm.classList.remove('selected');
+            });
+            event.target.closest('.payment-method').classList.add('selected');
+        }
+
+        function processPayment() {
+            showScreen('loading');
+            
+            // Simulate payment processing and exam generation
+            setTimeout(() => {
+                generateExam();
+                showScreen('practice');
+                startTimer();
+            }, 3000);
+        }
+
+        // Exam generation and practice functions
+        function generateExam() {
+            const config = examConfigs[state.selectedExam];
+            const baseQuestions = sampleQuestions[state.selectedExam] || sampleQuestions['prelims-basic'];
+            
+            // Generate questions based on configuration
+            state.questions = [];
+            for (let i = 0; i < Math.min(config.questions, 10); i++) {
+                const baseQuestion = baseQuestions[i % baseQuestions.length];
+                state.questions.push({
+                    ...baseQuestion,
+                    id: i + 1,
+                    text: baseQuestion.text + (i > 1 ? ` (Question ${i + 1})` : '')
+                });
+            }
+            
+            state.currentQuestion = 0;
+            state.answers = {};
+            state.timeRemaining = config.time * 60; // Convert to seconds
+            
+            updateQuestionDisplay();
+            updateNavigationButtons();
+        }
+
+        function updateQuestionDisplay() {
+            const question = state.questions[state.currentQuestion];
+            const config = examConfigs[state.selectedExam];
+            
+            document.getElementById('current-question-display').textContent = 
+                `Question ${state.currentQuestion + 1} of ${state.questions.length}`;
+            document.getElementById('q-number').textContent = state.currentQuestion + 1;
+            document.getElementById('q-text').textContent = question.text;
+            
+            const optionsContainer = document.getElementById('q-options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+                optionElement.onclick = () => selectAnswer(index);
+                
+                if (state.answers[question.id] === index) {
+                    optionElement.classList.add('selected');
+                }
+                
+                optionsContainer.appendChild(optionElement);
+            });
+        }
+
+        function selectAnswer(answerIndex) {
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
+            
+            const questionId = state.questions[state.currentQuestion].id;
+            state.answers[questionId] = answerIndex;
+        }
+
+        function navigateQuestion(direction) {
+            const newIndex = state.currentQuestion + direction;
+            if (newIndex >= 0 && newIndex < state.questions.length) {
+                state.currentQuestion = newIndex;
+                updateQuestionDisplay();
+                updateNavigationButtons();
+            }
+        }
+
+        function updateNavigationButtons() {
+            document.getElementById('prev-btn').disabled = state.currentQuestion === 0;
+            document.getElementById('next-btn').textContent = 
+                state.currentQuestion === state.questions.length - 1 ? 'Finish' : 'Next →';
+        }
+
+        function startTimer() {
+            if (state.timer) clearInterval(state.timer);
+            
+            state.timer = setInterval(() => {
+                state.timeRemaining--;
+                
+                const minutes = Math.floor(state.timeRemaining / 60);
+                const seconds = state.timeRemaining % 60;
+                
+                document.getElementById('timer-display').textContent = 
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (state.timeRemaining <= 0) {
+                    clearInterval(state.timer);
+                    submitExam();
+                }
+            }, 1000);
+        }
+
+        function submitExam() {
+            if (state.timer) clearInterval(state.timer);
+            
+            // Calculate results
+            let correct = 0;
+            let attempted = 0;
+            
+            state.questions.forEach(question => {
+                if (state.answers[question.id] !== undefined) {
+                    attempted++;
+                    if (state.answers[question.id] === question.correct) {
+                        correct++;
+                    }
+                }
+            });
+            
+            const percentage = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+            const config = examConfigs[state.selectedExam];
+            const timeTaken = Math.round((config.time * 60 - state.timeRemaining) / 60);
+            
+            // Update results display
+            document.getElementById('score-display').textContent = `${percentage}%`;
+            document.getElementById('correct-answers').textContent = correct;
+            document.getElementById('time-taken').textContent = timeTaken;
+            document.getElementById('accuracy').textContent = `${percentage}%`;
+            document.getElementById('rank').textContent = getGrade(percentage);
+            
+            const message = getScoreMessage(percentage);
+            document.getElementById('score-message').textContent = message;
+            
+            showScreen('results');
+        }
+
+        function getGrade(percentage) {
+            if (percentage >= 90) return 'A+';
+            if (percentage >= 80) return 'A';
+            if (percentage >= 70) return 'B+';
+            if (percentage >= 60) return 'B';
+            if (percentage >= 50) return 'C';
+            return 'D';
+        }
+
+        function getScoreMessage(percentage) {
+            if (percentage >= 90) return 'Outstanding performance! You\'re well-prepared for UPSC.';
+            if (percentage >= 80) return 'Excellent work! Keep practicing to maintain this level.';
+            if (percentage >= 70) return 'Good job! Focus on weak areas to improve further.';
+            if (percentage >= 60) return 'Decent attempt. More practice will help you improve.';
+            if (percentage >= 50) return 'Keep working hard. Focus on understanding concepts better.';
+            return 'Don\'t worry! Practice more and you\'ll see improvement.';
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation
+            document.getElementById('auth-btn').onclick = () => showScreen('auth');
+            document.getElementById('start-practice-btn').onclick = () => {
+                if (state.user) {
+                    showScreen('exam');
+                } else {
+                    showScreen('auth');
+                }
+            };
+            document.getElementById('logout-btn').onclick = logout;
+            document.getElementById('home-btn').onclick = () => showScreen('home');
+            document.getElementById('retake-exam-btn').onclick = () => showScreen('exam');
+
+            // Authentication
+            document.getElementById('google-auth-btn').onclick = handleGoogleAuth;
+            document.getElementById('phone-auth-form').onsubmit = (e) => {
+                e.preventDefault();
+                const phone = document.getElementById('phone-input').value;
+                handlePhoneAuth(phone);
+            };
+            document.getElementById('verify-otp-btn').onclick = () => {
+                const otp = document.getElementById('otp-input').value;
+                handleOTPVerification(otp);
+            };
+
+            // Exam selection
+            document.querySelectorAll('.exam-card').forEach(card => {
+                card.onclick = () => {
+                    const examType = card.dataset.exam;
+                    selectExam(examType);
+                };
+            });
+
+            document.getElementById('proceed-payment-btn').onclick = () => {
+                updateExamPrice();
+                showScreen('payment');
+            };
+
+            // Customization sliders
+            document.getElementById('difficulty-slider').oninput = (e) => {
+                const levels = ['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard'];
+                document.getElementById('difficulty-value').textContent = levels[e.target.value - 1];
+            };
+
+            document.getElementById('current-affairs-slider').oninput = (e) => {
+                document.getElementById('current-affairs-value').textContent = e.target.value + '%';
+            };
+
+            document.getElementById('history-slider').oninput = (e) => {
+                document.getElementById('history-value').textContent = e.target.value + '%';
+            };
+
+            // Payment
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.onclick = () => selectPaymentMethod(method.dataset.method);
+            });
+
+            document.getElementById('pay-now-btn').onclick = processPayment;
+
+            // Practice
+            document.getElementById('prev-btn').onclick = () => navigateQuestion(-1);
+            document.getElementById('next-btn').onclick = () => {
+                if (state.currentQuestion === state.questions.length - 1) {
+                    if (confirm('Are you sure you want to submit the exam?')) {
+                        submitExam();
+                    }
+                } else {
+                    navigateQuestion(1);
+                }
+            };
+            document.getElementById('submit-exam-btn').onclick = () => {
+                if (confirm('Are you sure you want to submit the exam?')) {
+                    submitExam();
+                }
+            };
+
+            // Initialize
+            updateAuthUI();
+        });
+
+        // Service Worker for offline functionality (optional)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(() => {
+                // Service worker registration failed, continue without offline support
+            });
+        }
+
+// Contact Form Submission Simulation
+document.addEventListener("DOMContentLoaded", function() {
+    const contactForm = document.querySelector(".contact-form");
+    if (contactForm) {
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault(); // stop real form submission
+            const name = contactForm.querySelector("input[type='text']").value;
+            const email = contactForm.querySelector("input[type='email']").value;
+            const message = contactForm.querySelector("textarea").value;
+
+            // Simulate API call delay
+            setTimeout(() => {
+                alert(`Thank you, ${name}! ✅\nWe received your message:\n"${message}"\n\nWe’ll reply at ${email}.`);
+                contactForm.reset();
+            }, 1000);
+        });
+    }
+});
+    </script>
+</body>
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 GoBarLife.ai. All rights reserved.</p>
+    <p>
+        <a href="#" onclick="showScreen('home')">Home</a> | 
+        <a href="#" onclick="showScreen('contact')">Contact Us</a>
+    </p>
+</footer>
+</html> 
