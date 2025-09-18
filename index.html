@@ -1273,11 +1273,16 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Navigation
             document.getElementById('auth-btn').onclick = () => showScreen('auth');
+			document.getElementById('auth-btn').onclick = () => { showScreen('auth');
+																 const authBtn = document.getElementById('auth-btn');
+																 authBtn.classList.add('hidden'); };
+			 
             document.getElementById('start-practice-btn').onclick = () => {
                 alert('Coming Soon… Thousands of aspirants like you are waiting. Don’t just prepare—practice smarter. Your edge is arriving soon.');
             };
             document.getElementById('logout-btn').onclick = logout;
-            document.getElementById('home-btn').onclick = () => showScreen('home');
+            //document.getElementById('home-btn').onclick = () => showScreen('home');
+			document.getElementById('home-btn').onclick = () => {showScreen('home'); updateAuthUI();};
 			document.getElementById('home-btn1').onclick = () => showScreen('home');
             document.getElementById('retake-exam-btn').onclick = () => showScreen('exam');
 
