@@ -955,41 +955,1215 @@
         // Sample Questions Data
         const sampleQuestions = {
             'prelims-basic': [
-                {
-                    id: 1,
-                    text: "Which of the following is the highest peak in the Western Ghats?",
-                    options: [
-                        "Anamudi",
-                        "Doddabetta",
-                        "Mullayanagiri",
-                        "Mahendragiri"
-                    ],
-                    correct: 0
-                },
-                {
-                    id: 2,
-                    text: "The 'Goods and Services Tax (GST)' was implemented in India in which year?",
-                    options: [
-                        "2016",
-                        "2017",
-                        "2018",
-                        "2019"
-                    ],
-                    correct: 1
-                }
+               
+    {
+        id: 1,
+        text: "Read the passage: 'Urbanization brings opportunities for economic growth but also challenges of housing and public services.' What is the most logical inference?",
+        options: [
+            "Urbanization should be completely discouraged.",
+            "Urbanization offers both challenges and opportunities.",
+            "Economic growth is only possible in rural areas.",
+            "Public services improve automatically with urbanization."
+        ],
+        correct: 1
+    },
+    {
+        id: 2,
+        text: "If all cats are animals and some animals are dogs, which of the following is true?",
+        options: [
+            "Some cats are dogs.",
+            "All animals are cats.",
+            "Some animals are cats.",
+            "No dog is a cat."
+        ],
+        correct: 2
+    },
+    {
+        id: 3,
+        text: "A train travels 180 km at a speed of 60 km/hr. How much time will it take?",
+        options: [
+            "2 hours",
+            "2.5 hours",
+            "3 hours",
+            "4 hours"
+        ],
+        correct: 2
+    },
+    {
+        id: 4,
+        text: "Choose the correct option: If 5x = 20, then x = ?",
+        options: [
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        correct: 2
+    },
+    {
+        id: 5,
+        text: "Read the passage: 'Climate change impacts agriculture, but adaptive practices can reduce risks.' Which is the correct conclusion?",
+        options: [
+            "Climate change does not affect agriculture.",
+            "Adaptive practices can help farmers manage climate risks.",
+            "Climate change can be ignored for farming.",
+            "Agriculture has no link with climate change."
+        ],
+        correct: 1
+    },
+    {
+        id: 6,
+        text: "A man walks 5 km north, then 3 km east. What is the shortest distance from his starting point?",
+        options: [
+            "5 km",
+            "6 km",
+            "7 km",
+            "8 km"
+        ],
+        correct: 1
+    },
+    {
+        id: 7,
+        text: "If the average of 4 numbers is 20, what is their total sum?",
+        options: [
+            "60",
+            "70",
+            "80",
+            "100"
+        ],
+        correct: 2
+    },
+    {
+        id: 8,
+        text: "Data Interpretation: A shop sold 200 pens in January and 300 in February. What is the percentage increase?",
+        options: [
+            "25%",
+            "33.3%",
+            "40%",
+            "50%"
+        ],
+        correct: 1
+    },
+    {
+        id: 9,
+        text: "Decision-making: You find a wallet on the road with money and ID card. What is the most appropriate action?",
+        options: [
+            "Keep the money and throw the wallet.",
+            "Ignore the wallet.",
+            "Return it to the owner using the ID card.",
+            "Give it to your friend."
+        ],
+        correct: 2
+    },
+    {
+        id: 10,
+        text: "General Mental Ability: If in a code language CAT = DBU, what will DOG = ?",
+        options: [
+            "EPH",
+            "DPH",
+            "EOF",
+            "EOG"
+        ],
+        correct: 0
+    }
+
             ],
             'prelims-advanced': [
                 {
-                    id: 1,
-                    text: "Which of the following statements about the Indian monsoon is/are correct?\n1. The monsoon is caused by seasonal reversal of wind patterns\n2. The Arabian Sea branch is more powerful than the Bay of Bengal branch\n3. Western Ghats receive more rainfall than Eastern Ghats",
-                    options: [
-                        "1 only",
-                        "1 and 3 only",
-                        "2 and 3 only",
-                        "All of the above"
-                    ],
-                    correct: 1
-                }
+    "id": 1,
+    "text": "Statement: 'Reading improves comprehension and analytical skills.' Which of the following can be logically inferred?",
+    "options": [
+        "People who read regularly are better at analysis.",
+        "Reading is a waste of time.",
+        "Analytical skills do not depend on reading.",
+        "Comprehension skills cannot be improved by reading."
+    ],
+    "correct": 0
+},{
+        "id": 2,
+        "text": "If all roses are flowers and some flowers fade quickly, what can be concluded?",
+        "options": [
+            "All roses fade quickly.",
+            "Some flowers are not roses.",
+            "Some roses fade quickly.",
+            "All flowers are roses."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 3,
+        "text": "A train travels 60 km in 1 hour and 30 minutes. What is its average speed?",
+        "options": [
+            "30 km/h",
+            "40 km/h",
+            "45 km/h",
+            "50 km/h"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 4,
+        "text": "Five friends are sitting in a row. A is to the left of B, C is to the right of D, and D is to the left of B. Who is in the middle?",
+        "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "correct": 3
+    },
+    {
+        "id": 5,
+        "text": "Which of the following is an assumption in the statement: 'Digital literacy is essential for inclusive growth'?",
+        "options": [
+            "People are naturally digitally literate.",
+            "Inclusive growth depends on technology adoption.",
+            "Digital literacy has no impact on growth.",
+            "Inclusive growth can happen without technology."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 6,
+        "text": "If in a certain code, 'TREE' is written as 'USFF', then 'PLANT' would be written as:",
+        "options": [
+            "QMBOV",
+            "QMBNU",
+            "QNBOV",
+            "QNBNU"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 7,
+        "text": "Choose the odd one out: 2, 6, 12, 20, 30",
+        "options": [
+            "2",
+            "6",
+            "12",
+            "30"
+        ],
+        "correct": 3
+    },
+    {
+        "id": 8,
+        "text": "A man spends 1/3 of his salary on rent, 1/5 on food, and saves the rest. If he saves ₹12,000, what is his salary?",
+        "options": [
+            "₹25,000",
+            "₹30,000",
+            "₹36,000",
+            "₹40,000"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 9,
+        "text": "Which of the following strengthens the argument: 'India should invest more in renewable energy'?",
+        "options": [
+            "Renewable energy reduces dependence on fossil fuels.",
+            "Coal is available in large quantities in India.",
+            "Nuclear power is safer than solar power.",
+            "Fossil fuels are cheaper in the short run."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 10,
+        "text": "If CAT = 24 and DOG = 26, then FISH = ?",
+        "options": [
+            "36",
+            "38",
+            "40",
+            "42"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 11,
+        "text": "In a certain code language, if 'DELHI' is written as 'CCKHG', then 'MUMBAI' is written as:",
+        "options": [
+            "LTLAYH",
+            "LVNBBH",
+            "LTLZBH",
+            "LVLAYH"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 12,
+        "text": "If 3 pencils cost ₹18, how much will 7 pencils cost?",
+        "options": [
+            "₹36",
+            "₹40",
+            "₹42",
+            "₹44"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 13,
+        "text": "Statement: All actors are dancers. Some dancers are singers. Which conclusion follows?",
+        "options": [
+            "All actors are singers.",
+            "Some singers are actors.",
+            "Some dancers may be actors.",
+            "No singer is an actor."
+        ],
+        "correct": 2
+    },
+    {
+        "id": 14,
+        "text": "A shopkeeper marks goods 20% above cost price and gives 10% discount. What is his profit percentage?",
+        "options": [
+            "8%",
+            "9%",
+            "10%",
+            "12%"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 15,
+        "text": "Choose the correct analogy: Book : Reading :: Knife : ?",
+        "options": [
+            "Cutting",
+            "Writing",
+            "Drawing",
+            "Cooking"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 16,
+        "text": "If A walks 3 km East, then 4 km North, where is he from the starting point?",
+        "options": [
+            "5 km Northeast",
+            "7 km Northeast",
+            "5 km Northwest",
+            "7 km Southeast"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 17,
+        "text": "Which of the following weakens the argument: 'Exams are the best way to judge student capability'?",
+        "options": [
+            "Exams are time-bound tests.",
+            "Exams often test memory, not understanding.",
+            "Exams have been used for centuries.",
+            "Exams create competition among students."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 18,
+        "text": "Find the missing number: 2, 6, 12, 20, ?",
+        "options": [
+            "28",
+            "30",
+            "32",
+            "34"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 19,
+        "text": "If in a code, '123' means 'sky is blue', '231' means 'blue is bright', then what does '3' stand for?",
+        "options": [
+            "Sky",
+            "Blue",
+            "Is",
+            "Bright"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 20,
+        "text": "If 6 workers can complete a work in 10 days, how many days will 15 workers take?",
+        "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        "correct": 2
+    },{
+        "id": 21,
+        "text": "Statement: Pollution levels in cities are rising. Assumption: ?",
+        "options": [
+            "Pollution is not harmful.",
+            "There are no vehicles in cities.",
+            "Urbanization contributes to pollution.",
+            "People enjoy polluted air."
+        ],
+        "correct": 2
+    },
+    {
+        "id": 22,
+        "text": "If 15 men can build a wall in 20 days, how many men are needed to build it in 10 days?",
+        "options": [
+            "25",
+            "30",
+            "35",
+            "40"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 23,
+        "text": "In a certain code, 'PAPER' is written as 'OZODQ'. How is 'PENCIL' written?",
+        "options": [
+            "ODMBHK",
+            "ODMBHK",
+            "ODMBHL",
+            "ODMBGL"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 24,
+        "text": "Choose the odd one out: Mango, Banana, Apple, Carrot",
+        "options": [
+            "Mango",
+            "Banana",
+            "Apple",
+            "Carrot"
+        ],
+        "correct": 3
+    },
+    {
+        "id": 25,
+        "text": "A shopkeeper buys a pen for ₹50 and sells it at 20% profit. What is the selling price?",
+        "options": [
+            "₹55",
+            "₹60",
+            "₹65",
+            "₹70"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 26,
+        "text": "If in a certain code 'ELECTION' is written as 'DKDBSHNM', then 'PARLIAMENT' is written as:",
+        "options": [
+            "OZQKHZLDMS",
+            "OBQKJZLDNS",
+            "OZQKJZLDMS",
+            "OZPKHZLDMS"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 27,
+        "text": "Which of the following is a conclusion from: 'All birds can fly. Penguins are birds.'?",
+        "options": [
+            "Penguins can fly.",
+            "All flying creatures are birds.",
+            "Some birds cannot fly.",
+            "Penguins are animals."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 28,
+        "text": "A person covers 40 km at 20 km/h and the next 40 km at 40 km/h. What is the average speed?",
+        "options": [
+            "25 km/h",
+            "26.6 km/h",
+            "28 km/h",
+            "30 km/h"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 29,
+        "text": "Find the missing number: 3, 9, 27, ?, 243",
+        "options": [
+            "54",
+            "72",
+            "81",
+            "90"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 30,
+        "text": "Which of the following strengthens the argument: 'Public transport should be encouraged'?",
+        "options": [
+            "Public transport reduces traffic congestion.",
+            "Private vehicles are more comfortable.",
+            "Public transport is always crowded.",
+            "Public transport increases pollution."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 31,
+        "text": "A clock shows 3:15. What is the angle between the hour and the minute hand?",
+        "options": [
+            "0°",
+            "7.5°",
+            "15°",
+            "22.5°"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 32,
+        "text": "Choose the correct analogy: Hand : Glove :: Foot : ?",
+        "options": [
+            "Shoe",
+            "Sock",
+            "Slipper",
+            "Boot"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 33,
+        "text": "Which of the following weakens the statement: 'Technology improves education'?",
+        "options": [
+            "Technology provides access to online resources.",
+            "Students waste time on social media.",
+            "Teachers use smart boards in class.",
+            "E-learning is cost-effective."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 34,
+        "text": "If in a code, 'KING' is written as 'LJOH', then 'QUEEN' is written as:",
+        "options": [
+            "RVFFO",
+            "RVFEM",
+            "RVDEN",
+            "RUEEN"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 35,
+        "text": "If 8 men can complete a work in 12 days, how many days will 6 men take?",
+        "options": [
+            "14",
+            "15",
+            "16",
+            "18"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 36,
+        "text": "Choose the odd one: Square, Triangle, Circle, Cube",
+        "options": [
+            "Square",
+            "Triangle",
+            "Circle",
+            "Cube"
+        ],
+        "correct": 3
+    },
+    {
+        "id": 37,
+        "text": "A man saves 25% of his income. If he spends ₹9,000, what is his income?",
+        "options": [
+            "₹11,000",
+            "₹12,000",
+            "₹14,000",
+            "₹15,000"
+        ],
+        "correct": 3
+    },
+    {
+        "id": 38,
+        "text": "Statement: 'Education should be free for all.' Assumption: ?",
+        "options": [
+            "People cannot afford education.",
+            "Free education ensures equality.",
+            "Education has no value.",
+            "Teachers should work without salary."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 39,
+        "text": "Find the next number: 2, 5, 10, 17, ?",
+        "options": [
+            "24",
+            "25",
+            "26",
+            "27"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 40,
+        "text": "Which of the following strengthens the argument: 'India should focus on skill development'?",
+        "options": [
+            "Skilled workforce increases productivity.",
+            "India has a large population.",
+            "Unemployment is not a problem in India.",
+            "Skilled workers migrate abroad."
+        ],
+        "correct": 0
+    },{
+        "id": 41,
+        "text": "A man is facing North. He turns 90° clockwise, then 180° anticlockwise. Which direction is he facing?",
+        "options": [
+            "East",
+            "West",
+            "South",
+            "North"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 42,
+        "text": "If 2 typists can type 60 pages in 3 hours, how many typists are required to type 120 pages in 6 hours?",
+        "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 43,
+        "text": "Choose the odd one: Twitter, Facebook, WhatsApp, Excel",
+        "options": [
+            "Twitter",
+            "Facebook",
+            "WhatsApp",
+            "Excel"
+        ],
+        "correct": 3
+    },
+    {
+        "id": 44,
+        "text": "Find the missing term: 4, 9, 16, 25, ?",
+        "options": [
+            "30",
+            "35",
+            "36",
+            "40"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 45,
+        "text": "Which of the following weakens the argument: 'Online classes are better than physical classes'?",
+        "options": [
+            "Online classes save travel time.",
+            "Internet connectivity is unreliable in rural areas.",
+            "Students can learn at their own pace online.",
+            "Online classes provide global access."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 46,
+        "text": "If in a code, 'SMART' is written as 'RNZQS', then 'CLEAR' is written as:",
+        "options": [
+            "BMDZQ",
+            "BMDZQ",
+            "DNDZQ",
+            "BMDZP"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 47,
+        "text": "A person sells an article at a 10% loss. If he had sold it for ₹20 more, he would have gained 10%. What is the cost price?",
+        "options": [
+            "₹80",
+            "₹100",
+            "₹120",
+            "₹200"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 48,
+        "text": "Choose the correct analogy: Doctor : Hospital :: Teacher : ?",
+        "options": [
+            "School",
+            "Classroom",
+            "Library",
+            "College"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 49,
+        "text": "Which of the following strengthens the argument: 'India should promote organic farming'?",
+        "options": [
+            "Organic farming reduces soil degradation.",
+            "Chemical fertilizers are cheaper.",
+            "Organic farming requires more land.",
+            "Organic food is expensive."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 50,
+        "text": "A train 120 m long passes a pole in 6 seconds. What is its speed?",
+        "options": [
+            "60 km/h",
+            "72 km/h",
+            "80 km/h",
+            "90 km/h"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 51,
+        "text": "Find the next number: 7, 14, 28, 56, ?",
+        "options": [
+            "84",
+            "100",
+            "112",
+            "120"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 52,
+        "text": "Which of the following is an assumption in the statement: 'Sports build character'?",
+        "options": [
+            "Sports require discipline and teamwork.",
+            "Sports have no role in personality development.",
+            "Sports are harmful to studies.",
+            "Sports are a waste of time."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 53,
+        "text": "If in a certain code, 'HOUSE' is written as 'IPVTF', then 'SCHOOL' is written as:",
+        "options": [
+            "TDIPPM",
+            "TDIPOL",
+            "TDJPPM",
+            "TDJQPM"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 54,
+        "text": "A boat goes 12 km downstream in 3 hours and returns upstream in 4 hours. What is the speed of the boat in still water?",
+        "options": [
+            "3 km/h",
+            "3.5 km/h",
+            "4 km/h",
+            "4.5 km/h"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 55,
+        "text": "Choose the odd one: Mercury, Venus, Earth, Pluto",
+        "options": [
+            "Mercury",
+            "Venus",
+            "Earth",
+            "Pluto"
+        ],
+        "correct": 3
+    },
+    {
+        "id": 56,
+        "text": "If 40% of a number is 120, what is the number?",
+        "options": [
+            "200",
+            "250",
+            "300",
+            "350"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 57,
+        "text": "Which of the following weakens the argument: 'Mobile phones improve communication'?",
+        "options": [
+            "Mobile phones allow instant connectivity.",
+            "Mobile phones are expensive.",
+            "Mobile phones support video calls.",
+            "Mobile phones reduce distances."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 58,
+        "text": "If in a code 'INDIA' is written as 'JNEJB', then 'DELHI' is written as:",
+        "options": [
+            "EFMIJ",
+            "EFMJI",
+            "EEMIJ",
+            "EFNJJ"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 59,
+        "text": "A car travels 60 km in 1 hour and 30 minutes. What is its average speed?",
+        "options": [
+            "30 km/h",
+            "36 km/h",
+            "40 km/h",
+            "45 km/h"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 60,
+        "text": "Statement: 'Recycling should be encouraged.' Which assumption is implicit?",
+        "options": [
+            "Recycling reduces waste.",
+            "Recycling is harmful.",
+            "Recycling increases costs.",
+            "Recycling reduces employment."
+        ],
+        "correct": 0
+    },{
+        "id": 61,
+        "text": "If 12 men can complete a work in 18 days, how many days will 9 men take?",
+        "options": [
+            "20",
+            "22",
+            "24",
+            "26"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 62,
+        "text": "Choose the correct analogy: Bird : Nest :: Bee : ?",
+        "options": [
+            "Hive",
+            "Colony",
+            "Tree",
+            "Burrow"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 63,
+        "text": "Which of the following strengthens the argument: 'India should adopt electric vehicles'?",
+        "options": [
+            "Electric vehicles reduce pollution.",
+            "Petrol is cheaper than electricity.",
+            "EV batteries are costly.",
+            "EV charging takes time."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 64,
+        "text": "A train leaves a station at 7 AM at 40 km/h. Another train leaves at 8 AM at 60 km/h in the same direction. At what time will the second train catch the first?",
+        "options": [
+            "9 AM",
+            "10 AM",
+            "11 AM",
+            "12 Noon"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 65,
+        "text": "Find the missing number: 11, 22, 44, 88, ?",
+        "options": [
+            "132",
+            "154",
+            "166",
+            "176"
+        ],
+        "correct": 3
+    },
+    {
+        "id": 66,
+        "text": "Statement: 'Drinking clean water is essential for health.' Assumption: ?",
+        "options": [
+            "Water is always clean.",
+            "Unclean water can cause diseases.",
+            "Water has no impact on health.",
+            "People prefer unclean water."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 67,
+        "text": "If in a code, 'MOTHER' is written as 'NPUIGS', then 'FATHER' is written as:",
+        "options": [
+            "GBUIFS",
+            "GBUJFS",
+            "GBUJFT",
+            "GBUJES"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 68,
+        "text": "A shopkeeper gives 10% discount and still makes 8% profit. If the marked price is ₹540, what is the cost price?",
+        "options": [
+            "₹400",
+            "₹420",
+            "₹450",
+            "₹480"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 69,
+        "text": "Choose the odd one: Dog, Cat, Cow, Tiger",
+        "options": [
+            "Dog",
+            "Cat",
+            "Cow",
+            "Tiger"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 70,
+        "text": "Which of the following weakens the argument: 'Exams motivate students to study'?",
+        "options": [
+            "Exams create stress among students.",
+            "Exams provide competition.",
+            "Exams encourage regular study.",
+            "Exams assess learning."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 71,
+        "text": "If 25% of A = 50% of B, and A = 40, then B = ?",
+        "options": [
+            "10",
+            "20",
+            "30",
+            "40"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 72,
+        "text": "A person walks 4 km North, then 3 km East. What is the shortest distance from the starting point?",
+        "options": [
+            "5 km",
+            "6 km",
+            "7 km",
+            "8 km"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 73,
+        "text": "If in a code, 'LIGHT' is written as 'MJHIU', then 'DARK' is written as:",
+        "options": [
+            "EBSL",
+            "EBRL",
+            "EASL",
+            "EBSM"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 74,
+        "text": "Find the next term: 2, 6, 12, 20, 30, ?",
+        "options": [
+            "40",
+            "42",
+            "44",
+            "46"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 75,
+        "text": "Which of the following strengthens the argument: 'Internet should be made available in villages'?",
+        "options": [
+            "Internet access improves education and business opportunities.",
+            "Villagers do not use smartphones.",
+            "Internet is costly to set up.",
+            "Villages lack electricity."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 76,
+        "text": "A can do a work in 12 days, B in 16 days. Together they can do it in how many days?",
+        "options": [
+            "6.8",
+            "6.9",
+            "7",
+            "7.5"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 77,
+        "text": "Choose the correct analogy: Ear : Hear :: Eye : ?",
+        "options": [
+            "Look",
+            "See",
+            "Observe",
+            "Watch"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 78,
+        "text": "If 12% of a number is 180, what is the number?",
+        "options": [
+            "1200",
+            "1400",
+            "1500",
+            "1600"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 79,
+        "text": "Statement: 'Plastic should be banned.' Assumption: ?",
+        "options": [
+            "Plastic is eco-friendly.",
+            "Plastic causes environmental damage.",
+            "Plastic is cheap.",
+            "Plastic is recyclable."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 80,
+        "text": "A car covers 150 km in 3 hours and another 200 km in 4 hours. What is its average speed?",
+        "options": [
+            "45 km/h",
+            "50 km/h",
+            "52 km/h",
+            "55 km/h"
+        ],
+        "correct": 1
+    },{
+        "id": 81,
+        "text": "If in a code, 'WORLD' is written as 'XPSME', then 'INDIA' is written as:",
+        "options": [
+            "JOEJB",
+            "JNEJB",
+            "JNEIB",
+            "JOEJA"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 82,
+        "text": "A train travels 60 km at 30 km/h and another 60 km at 60 km/h. What is the average speed?",
+        "options": [
+            "40 km/h",
+            "42 km/h",
+            "45 km/h",
+            "48 km/h"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 83,
+        "text": "Choose the odd one: Gold, Silver, Diamond, Copper",
+        "options": [
+            "Gold",
+            "Silver",
+            "Diamond",
+            "Copper"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 84,
+        "text": "Which of the following strengthens the argument: 'India should invest in space research'?",
+        "options": [
+            "Space research promotes scientific development.",
+            "Space research is expensive.",
+            "India has other pressing needs.",
+            "Other countries have advanced space programs."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 85,
+        "text": "Find the missing number: 2, 5, 10, 17, 26, ?",
+        "options": [
+            "35",
+            "36",
+            "37",
+            "38"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 86,
+        "text": "Statement: 'Health insurance should be mandatory.' Assumption: ?",
+        "options": [
+            "People do not need insurance.",
+            "Health expenses can be high.",
+            "Insurance is unnecessary.",
+            "Everyone can afford treatment."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 87,
+        "text": "If A can complete a work in 15 days and B in 20 days, in how many days will both finish together?",
+        "options": [
+            "8",
+            "9",
+            "10",
+            "12"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 88,
+        "text": "Choose the correct analogy: Knife : Cut :: Pen : ?",
+        "options": [
+            "Draw",
+            "Write",
+            "Erase",
+            "Sketch"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 89,
+        "text": "Which of the following weakens the argument: 'Social media improves communication'?",
+        "options": [
+            "Social media allows instant sharing.",
+            "Social media spreads misinformation.",
+            "Social media connects people globally.",
+            "Social media helps in learning."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 90,
+        "text": "If in a code 'SCHOOL' is written as 'TIDPOM', then 'COLLEGE' is written as:",
+        "options": [
+            "DPMMFGF",
+            "DPNMFGF",
+            "DPNMFGF",
+            "DPLMFGF"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 91,
+        "text": "A man spends 40% of his income on rent, 20% on food, and saves the rest. If he saves ₹18,000, what is his income?",
+        "options": [
+            "₹30,000",
+            "₹35,000",
+            "₹40,000",
+            "₹45,000"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 92,
+        "text": "Find the next number: 1, 4, 9, 16, 25, ?",
+        "options": [
+            "30",
+            "35",
+            "36",
+            "40"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 93,
+        "text": "Statement: 'Government should invest in education.' Assumption: ?",
+        "options": [
+            "Education has no role in development.",
+            "Education is key to national progress.",
+            "Government funds are unlimited.",
+            "Education is unimportant."
+        ],
+        "correct": 1
+    },
+    {
+        "id": 94,
+        "text": "A train crosses a platform 300 m long in 30 seconds at a speed of 60 km/h. What is the length of the train?",
+        "options": [
+            "150 m",
+            "200 m",
+            "250 m",
+            "300 m"
+        ],
+        "correct": 1
+    },
+    {
+        "id": 95,
+        "text": "Choose the odd one: Apple, Orange, Grapes, Potato",
+        "options": [
+            "Apple",
+            "Orange",
+            "Grapes",
+            "Potato"
+        ],
+        "correct": 3
+    },
+    {
+        "id": 96,
+        "text": "If in a code 'DELHI' is written as 'EDMIJ', then 'MUMBAI' is written as:",
+        "options": [
+            "NVNCBJ",
+            "NVNCAJ",
+            "NVNCBI",
+            "NVNBJI"
+        ],
+        "correct": 0
+    },
+    {
+        "id": 97,
+        "text": "If 5 men can do a work in 12 days, how many days will 10 men take?",
+        "options": [
+            "4",
+            "5",
+            "6",
+            "7"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 98,
+        "text": "Which of the following strengthens the argument: 'Libraries should be digitized'?",
+        "options": [
+            "Digital libraries provide easy access to books.",
+            "Traditional libraries have their own charm.",
+            "People prefer physical books.",
+            "Digitalization is costly."
+        ],
+        "correct": 0
+    },
+    {
+        "id": 99,
+        "text": "Find the missing number: 2, 4, 8, 16, 32, ?",
+        "options": [
+            "48",
+            "60",
+            "64",
+            "66"
+        ],
+        "correct": 2
+    },
+    {
+        "id": 100,
+        "text": "Statement: 'Renewable energy should replace fossil fuels.' Assumption: ?",
+        "options": [
+            "Fossil fuels are unlimited.",
+            "Fossil fuels are harmful to the environment.",
+            "Renewable energy is ineffective.",
+            "Energy is not required."
+        ],
+        "correct": 1
+    }
             ]
         };
 
